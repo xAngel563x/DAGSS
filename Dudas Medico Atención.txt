@@ -1,0 +1,11 @@
+Dudas:
+--Medico
+Atención al paciente
+Planes de recetas
+Perfil del medico
+--Paciente
+Mis citas
+Perfil del cliente
+--Farmacia
+Perfil de farmacia
+
