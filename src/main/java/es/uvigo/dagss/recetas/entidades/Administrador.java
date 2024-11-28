@@ -8,6 +8,11 @@ import jakarta.persistence.Entity;
 public class Administrador extends Usuario {
 
     // Anadir atributos propios
+
+    private String nombre;
+    private String apellidos;
+    private String email;
+
 	
     public Administrador() {
         super(TipoUsuario.ADMINISTRADOR); 

@@ -8,6 +8,15 @@ import jakarta.persistence.Entity;
 public class Farmacia extends Usuario {
 
     // Anadir atributos propios
+    private String nombreEstabl;
+    private String nombreFarmaceutico;
+    private String apellidosFarmaceutico;
+    private String nif;
+    private String numColegiadoFarmaceutico;
+    private String direccion;
+    private int tel;
+    private String email;
+    
 	
     public Farmacia() {
         super(TipoUsuario.FARMACIA);

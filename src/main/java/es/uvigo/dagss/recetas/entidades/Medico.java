@@ -8,6 +8,15 @@ import jakarta.persistence.Entity;
 public class Medico extends Usuario {
 
     // Anadir atributos propios
+
+    private String nombre;
+    private String apellidos;
+    private String dni;
+    private String numColegiado;
+    private int tel;
+    private String email;
+
+    private CentroSalud centroSaludAsignado;
     
     public Medico() {
         super(TipoUsuario.MEDICO);
