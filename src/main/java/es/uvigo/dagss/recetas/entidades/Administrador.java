@@ -10,7 +10,9 @@ public class Administrador extends Usuario {
     // Anadir atributos propios
 
     private String nombre;
+
     private String apellidos;
+    
     private String email;
 
 	
