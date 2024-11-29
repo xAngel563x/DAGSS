@@ -18,6 +18,13 @@ public class Administrador extends Usuario {
         super(TipoUsuario.ADMINISTRADOR); 
     }
 
+    public Administrador(String login, String passwd, String nom, String ap, String email){
+        super(TipoUsuario.ADMINISTRADOR, login, passwd);
+        this.nombre = nom;
+        this.apellidos = ap;
+        this.email = email;
+    }
+
 
 
 }
