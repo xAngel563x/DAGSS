@@ -23,7 +23,7 @@ public class Medico extends Usuario {
     private String numColegiado;
 
     @Column(name = "TELEFONO")
-    private int tel;
+    private String tel;
 
     private String email;
 
@@ -31,8 +31,15 @@ public class Medico extends Usuario {
     @ManyToOne
     private CentroSalud centroSaludAsignado;
     
-    public Medico() {
+    public Medico(String nom, String ap, String dni, String numCol, String tel, String email, CentroSalud cen) {
         super(TipoUsuario.MEDICO);
+        this.nombre = nom;
+        this.apellidos = ap;
+        this.dni = dni;
+        this.numColegiado = numCol;
+        this.tel = tel;
+        this.email = email;
+        this.centroSaludAsignado = cen;
     }
 
 

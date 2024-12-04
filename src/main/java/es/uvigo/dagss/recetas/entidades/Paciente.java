@@ -31,7 +31,7 @@ public class Paciente extends Usuario {
     private String direccion;
 
     @Column(name = "TELEFONO")
-    private int tel;
+    private String tel;
 
     private String email;
     
@@ -52,6 +52,21 @@ public class Paciente extends Usuario {
 
     public Paciente() {
         super(TipoUsuario.PACIENTE);        
+    }
+
+    public Paciente(String nombre, String apellidos, String dni, String tarj, String numSS, String direcc, String tel, String email, Date fechaNac, CentroSalud centro, Medico medico){
+        this();
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.tarjSanitaria = tarj;
+        this.numSS= numSS;
+        this.direccion = direcc;
+        this.tel = tel;
+        this.email = email;
+        this.fechaNac = fechaNac;
+        this.centroSaludAsignado = centro;
+        this.medicoAsignado = medico;
     }
 
 }

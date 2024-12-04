@@ -26,13 +26,21 @@ public class Farmacia extends Usuario {
     private String direccion;
 
     @Column(name = "TELEFONO")
-    private int tel;
+    private String tel;
 
     private String email;
     
 	
-    public Farmacia() {
+    public Farmacia(String nom, String nomFarm, String ap, String nif, String numCol, String dir, String tel, String email) {
         super(TipoUsuario.FARMACIA);
+        this.nombreEstabl = nom;
+        this.nombreFarmaceutico = nomFarm;
+        this.apellidosFarmaceutico = ap;
+        this.nif = nif;
+        this.numColegiadoFarmaceutico = numCol;
+        this.direccion = dir;
+        this.tel = tel;
+        this.email = email;
     }
     
 }

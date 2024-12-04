@@ -4,6 +4,8 @@ import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -14,7 +16,8 @@ import jakarta.persistence.TemporalType;
 public class Prescripcion {
 
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "DOSIS_DIARIA")
     private double dosisDiaria;
@@ -29,9 +32,8 @@ public class Prescripcion {
     @Temporal(TemporalType.DATE)
     private Date fechaFin;
 
-    private boolean activo = true;
+    private boolean activo;
 
-    
 
     @JoinColumn(name = "MEDICAMENTO_PRESCRITO")
     @ManyToOne
@@ -46,7 +48,14 @@ public class Prescripcion {
     private Medico medico;
 
 
-    public Prescripcion(){
-
+    public Prescripcion(double dosis, String indicaciones, Date fechaIn, Date fechaFin, Medicamento m, Paciente p, Medico med){
+        this.activo = true;
+        this.dosisDiaria = dosis;
+        this.indicaciones = indicaciones;
+        this.fechaFin = fechaFin;
+        this.fechaInicio = fechaIn;
+        this.medicamentoPrescrito = m;
+        this.paciente = p;
+        this.medico = med;
     }
 }
