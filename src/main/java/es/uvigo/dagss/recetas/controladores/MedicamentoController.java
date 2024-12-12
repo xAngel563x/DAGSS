@@ -2,6 +2,7 @@ package es.uvigo.dagss.recetas.controladores;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +12,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.uvigo.dagss.recetas.entidades.Farmacia;
+
 import es.uvigo.dagss.recetas.entidades.Medicamento;
 import es.uvigo.dagss.recetas.servicios.MedicamentoServicio;
 
 @RestController
-@RequestMapping("/api/farmacias")
+@RequestMapping("/api/medicamentos")
 public class MedicamentoController {
 
+    @Autowired
     private MedicamentoServicio medicamentoservicio;
 
     @GetMapping
