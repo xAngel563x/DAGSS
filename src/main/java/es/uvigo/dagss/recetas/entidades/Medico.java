@@ -42,5 +42,73 @@ public class Medico extends Usuario {
         this.centroSaludAsignado = cen;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getNumColegiado() {
+        return numColegiado;
+    }
+
+    public void setNumColegiado(String numColegiado) {
+        this.numColegiado = numColegiado;
+    }
+
+    public String getTelefono() {
+        return tel;
+    }
+
+    public void setTelefono(String tel) {
+        this.tel = tel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public CentroSalud getCentroSaludAsignado() {
+        return centroSaludAsignado;
+    }
+
+    public void setCentroSaludAsignado(CentroSalud centroSaludAsignado) {
+        this.centroSaludAsignado = centroSaludAsignado;
+    }
+
+    // Método toString para depuración
+    @Override
+    public String toString() {
+        return "Medico{" +
+                "nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", dni='" + dni + '\'' +
+                ", numColegiado='" + numColegiado + '\'' +
+                ", telefono='" + tel + '\'' +
+                ", email='" + email + '\'' +
+                ", centroSaludAsignado=" + centroSaludAsignado +
+                '}';
+    }
 }

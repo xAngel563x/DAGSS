@@ -1,38 +1,75 @@
 package es.uvigo.dagss.recetas;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication(scanBasePackages = "es.uvigo.dagss.recetas")
+public class RecetasApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(RecetasApplication.class, args);
+    }
+}
+
+
+/*package es.uvigo.dagss.recetas;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import es.uvigo.dagss.recetas.daos.FarmaciaRepositorio;
+import es.uvigo.dagss.recetas.daos.FarmaciaDAO;
+import es.uvigo.dagss.recetas.daos.PacienteDAO;
 import es.uvigo.dagss.recetas.entidades.Farmacia;
 import es.uvigo.dagss.recetas.entidades.Paciente;
-import es.uvigo.dagss.recetas.servicios.FarmaciaServicio;
-import es.uvigo.dagss.recetas.servicios.PacienteServicio;
-
 
 @SpringBootApplication
-public class RecetasApplication implements CommandLineRunner{
+public class RecetasApplication implements CommandLineRunner {
 
-	@Autowired
-	FarmaciaRepositorio repFarm;
+    @Autowired
+    private FarmaciaDAO farmaciaDAO;
 
-	public static void main(String[] args) {
-		SpringApplication.run(RecetasApplication.class, args);
-	}
+    @Autowired
+    private PacienteDAO pacienteDAO;
 
-	@Override
-	public void run(String... args) throws Exception {
-		//crearInstancias(); ------------------ Errores al crear instancias
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RecetasApplication.class, args);
+    }
 
-	public void crearInstancias(){
-		
-		Farmacia f = new Farmacia("Farmacia Alo", "Pepe", "Alvarez", "32766735", 
-			"986467498", "Calle Nuño de Ousende", "576294072", "farmaciaalo@gmail.com");
-		repFarm.save(f);
-	}
+    @Override
+    public void run(String... args) {
+        try {
+            crearInstancias();
+        } catch (Exception e) {
+            System.err.println("Error al crear instancias: " + e.getMessage());
+        }
+    }
 
-}
+    public void crearInstancias() {
+        // Crear instancia de Farmacia
+        Farmacia farmacia = new Farmacia();
+        farmacia.setNombreEstablecimiento("Farmacia Alo");
+        farmacia.setNombreFarmaceutico("Pepe");
+        farmacia.setApellidosFarmaceutico("Alvarez");
+        farmacia.setDni("32766735");
+        farmacia.setTelefono("986467498");
+        farmacia.setDireccion("Calle Nuño de Ousende");
+        farmacia.setEmail("farmaciaalo@gmail.com");
+
+        farmaciaDAO.save(farmacia);
+
+        // Crear instancia de Paciente
+        Paciente paciente = new Paciente();
+        paciente.setNombre("Ana");
+        paciente.setApellidos("Gomez");
+        paciente.setDni("12345678A");
+        paciente.setNumeroTarjetaSanitaria("1234567890");
+        paciente.setTelefono("987654321");
+        paciente.setEmail("ana.gomez@gmail.com");
+
+        pacienteDAO.save(paciente);
+
+        System.out.println("Instancias creadas correctamente.");
+    }
+}*/

@@ -1,9 +1,7 @@
 package es.uvigo.dagss.recetas.servicios;
 
+import es.uvigo.dagss.recetas.daos.FarmaciaDAO;
 import es.uvigo.dagss.recetas.entidades.Farmacia;
-import es.uvigo.dagss.recetas.daos.FarmaciaRepositorio;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,14 +9,33 @@ import java.util.List;
 @Service
 public class FarmaciaServicio {
 
-    @Autowired
-    private FarmaciaRepositorio farmaciaRepositorio;
+    private final FarmaciaDAO farmaciaDAO;
 
-    public List<Farmacia> buscarPorNombreOUbicacion(String nombre, String direccion) {
-        return farmaciaRepositorio.buscarPorNombreOUbicacion(nombre, direccion);
+    public FarmaciaServicio(FarmaciaDAO farmaciaDAO) {
+        this.farmaciaDAO = farmaciaDAO;
     }
 
-    public Farmacia crearFarmacia(Farmacia farmacia) {
-        return farmaciaRepositorio.save(farmacia);
+    public Farmacia buscarPorId(Long id) {
+        return farmaciaDAO.findById(id);
+    }
+
+    public List<Farmacia> listarTodas() {
+        return farmaciaDAO.findAll();
+    }
+
+    public Farmacia guardarFarmacia(Farmacia farmacia) {
+        return farmaciaDAO.save(farmacia);
+    }
+
+    public void eliminarFarmacia(Long id) {
+        farmaciaDAO.delete(id);
+    }
+
+    public List<Farmacia> buscarPorNombreEstablecimiento(String nombre) {
+        return farmaciaDAO.findByNombreEstablecimiento(nombre);
+    }
+
+    public List<Farmacia> buscarPorLocalidad(String localidad) {
+        return farmaciaDAO.findByLocalidad(localidad);
     }
 }

@@ -10,8 +10,6 @@ public class Administrador extends Usuario {
     // Anadir atributos propios
 
     private String nombre;
-
-    private String apellidos;
     
     private String email;
 
@@ -23,10 +21,22 @@ public class Administrador extends Usuario {
     public Administrador(String login, String passwd, String nom, String ap, String email){
         super(TipoUsuario.ADMINISTRADOR, login, passwd);
         this.nombre = nom;
-        this.apellidos = ap;
         this.email = email;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

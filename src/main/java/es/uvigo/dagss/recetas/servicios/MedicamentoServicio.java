@@ -1,9 +1,7 @@
 package es.uvigo.dagss.recetas.servicios;
 
+import es.uvigo.dagss.recetas.daos.MedicamentoDAO;
 import es.uvigo.dagss.recetas.entidades.Medicamento;
-import es.uvigo.dagss.recetas.daos.MedicamentoRepositorio;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,14 +9,41 @@ import java.util.List;
 @Service
 public class MedicamentoServicio {
 
-    @Autowired
-    private MedicamentoRepositorio medicamentoRepositorio;
+    private final MedicamentoDAO medicamentoDAO;
 
-    public List<Medicamento> buscarPorNombre(String nombre) {
-        return medicamentoRepositorio.buscarPorNombreComercial(nombre);
+    public MedicamentoServicio(MedicamentoDAO medicamentoDAO) {
+        this.medicamentoDAO = medicamentoDAO;
     }
 
-    public List<Medicamento> buscarPorCriterioGeneral(String criterio) {
-        return medicamentoRepositorio.buscarPorCriterioGeneral(criterio);
+    public Medicamento buscarPorId(Long id) {
+        return medicamentoDAO.findById(id);
+    }
+
+    public List<Medicamento> listarTodos() {
+        return medicamentoDAO.findAll();
+    }
+
+    public Medicamento guardarMedicamento(Medicamento medicamento) {
+        return medicamentoDAO.save(medicamento);
+    }
+
+    public void eliminarMedicamento(Long id) {
+        medicamentoDAO.delete(id);
+    }
+
+    public List<Medicamento> buscarPorNombre(String nombre) {
+        return medicamentoDAO.findByNombre(nombre);
+    }
+
+    public List<Medicamento> buscarPorPrincipioActivo(String principioActivo) {
+        return medicamentoDAO.findByPrincipioActivo(principioActivo);
+    }
+
+    public List<Medicamento> buscarPorFabricante(String fabricante) {
+        return medicamentoDAO.findByFabricante(fabricante);
+    }
+
+    public List<Medicamento> buscarPorFamilia(String familia) {
+        return medicamentoDAO.findByFamilia(familia);
     }
 }

@@ -1,9 +1,7 @@
 package es.uvigo.dagss.recetas.servicios;
 
+import es.uvigo.dagss.recetas.daos.PrescripcionDAO;
 import es.uvigo.dagss.recetas.entidades.Prescripcion;
-import es.uvigo.dagss.recetas.daos.PrescripcionRepositorio;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,18 +9,33 @@ import java.util.List;
 @Service
 public class PrescripcionServicio {
 
-    @Autowired
-    private PrescripcionRepositorio prescripcionRepositorio;
+    private final PrescripcionDAO prescripcionDAO;
 
-    public List<Prescripcion> encontrarPorPaciente(Long pacienteId) {
-        return prescripcionRepositorio.encontrarPrescripcionesActivasPorPaciente(pacienteId);
+    public PrescripcionServicio(PrescripcionDAO prescripcionDAO) {
+        this.prescripcionDAO = prescripcionDAO;
     }
 
-    public List<Prescripcion> encontrarPorMedico(Long medicoId) {
-        return prescripcionRepositorio.encontrarPrescripcionesPorMedico(medicoId);
+    public Prescripcion buscarPorId(Long id) {
+        return prescripcionDAO.findById(id);
     }
 
-    public Prescripcion crearPrescripcion(Prescripcion prescripcion) {
-        return prescripcionRepositorio.save(prescripcion);
+    public List<Prescripcion> listarTodas() {
+        return prescripcionDAO.findAll();
+    }
+
+    public Prescripcion guardarPrescripcion(Prescripcion prescripcion) {
+        return prescripcionDAO.save(prescripcion);
+    }
+
+    public void eliminarPrescripcion(Long id) {
+        prescripcionDAO.delete(id);
+    }
+
+    public List<Prescripcion> buscarPorPaciente(Long pacienteId) {
+        return prescripcionDAO.findByPacienteId(pacienteId);
+    }
+
+    public List<Prescripcion> buscarPorMedico(Long medicoId) {
+        return prescripcionDAO.findByMedicoId(medicoId);
     }
 }

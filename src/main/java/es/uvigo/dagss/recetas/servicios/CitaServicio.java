@@ -1,30 +1,51 @@
 package es.uvigo.dagss.recetas.servicios;
 
+import es.uvigo.dagss.recetas.daos.CitaDAO;
 import es.uvigo.dagss.recetas.entidades.Cita;
-import es.uvigo.dagss.recetas.daos.CitaRepositorio;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import es.uvigo.dagss.recetas.entidades.EstadoCita;
 import org.springframework.stereotype.Service;
 
-
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class CitaServicio {
 
-    @Autowired
-    private CitaRepositorio citaRepositorio;
+    private final CitaDAO citaDAO;
 
-    public List<Cita> buscarCitasPlanificadasPorMedicoYFecha(Long medicoId, Date fecha) {
-        return citaRepositorio.buscarCitasPlanificadasPorMedicoYFecha(medicoId, fecha);
+    public CitaServicio(CitaDAO citaDAO) {
+        this.citaDAO = citaDAO;
     }
 
-    public boolean verificarDisponibilidad(Long medicoId, Date fecha) {
-        return citaRepositorio.verificarDisponibilidad(medicoId, fecha).isEmpty();
+    public Cita buscarPorId(Long id) {
+        return citaDAO.findById(id);
     }
 
-    public Cita crearCita(Cita cita) {
-        return citaRepositorio.save(cita);
+    public List<Cita> listarTodas() {
+        return citaDAO.findAll();
+    }
+
+    public Cita guardarCita(Cita cita) {
+        return citaDAO.save(cita);
+    }
+
+    public void eliminarCita(Long id) {
+        citaDAO.delete(id);
+    }
+
+    public List<Cita> buscarPorPaciente(Long pacienteId) {
+        return citaDAO.findByPacienteId(pacienteId);
+    }
+
+    public List<Cita> buscarPorMedico(Long medicoId) {
+        return citaDAO.findByMedicoId(medicoId);
+    }
+
+    public List<Cita> buscarPorEstado(EstadoCita estado) {
+        return citaDAO.findByEstado(estado);
+    }
+
+    public List<Cita> buscarPorMedicoYFecha(Long medicoId, LocalDate fecha) {
+        return citaDAO.findByMedicoIdAndFecha(medicoId, fecha);
     }
 }
