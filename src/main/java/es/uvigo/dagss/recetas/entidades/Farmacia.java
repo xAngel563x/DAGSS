@@ -29,10 +29,14 @@ public class Farmacia extends Usuario {
     private String tel;
 
     private String email;
+
+    public Farmacia(){
+        super(TipoUsuario.FARMACIA);
+    }
     
 	
-    public Farmacia(String nom, String nomFarm, String ap, String nif, String numCol, String dir, String tel, String email) {
-        super(TipoUsuario.FARMACIA);
+    public Farmacia(String nom, String nomFarm, String ap, String nif, String numCol, String dir, String tel, String email, String login, String passwd) {
+        super(TipoUsuario.FARMACIA, login, passwd);
         this.nombreEstabl = nom;
         this.nombreFarmaceutico = nomFarm;
         this.apellidosFarmaceutico = ap;

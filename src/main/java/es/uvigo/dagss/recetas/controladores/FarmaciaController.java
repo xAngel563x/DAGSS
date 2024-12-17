@@ -24,7 +24,7 @@ public class FarmaciaController {
     public ResponseEntity<Farmacia> crearFarmacia(@RequestBody Farmacia farmacia) {
         return ResponseEntity.ok(farmaciaServicio.guardarFarmacia(farmacia));
     }
-
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarFarmacia(@PathVariable Long id) {
         farmaciaServicio.eliminarFarmacia(id);

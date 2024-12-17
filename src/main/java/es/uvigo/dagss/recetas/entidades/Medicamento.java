@@ -27,6 +27,9 @@ public class Medicamento {
     
     private boolean activo;
 
+    public Medicamento(){
+        
+    }
 
     public Medicamento(String nom,String prin, String fabr, String familia, int numDos){
         this.nombre = nom;

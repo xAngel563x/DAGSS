@@ -48,6 +48,10 @@ public class Prescripcion {
     private Medico medico;
 
 
+    public Prescripcion(){
+        
+    }
+
     public Prescripcion(double dosis, String indicaciones, Date fechaIn, Date fechaFin, Medicamento m, Paciente p, Medico med){
         this.activo = true;
         this.dosisDiaria = dosis;

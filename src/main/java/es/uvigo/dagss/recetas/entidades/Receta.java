@@ -44,6 +44,9 @@ public class Receta {
     @ManyToOne
     private Farmacia farmacia;
 
+    public Receta(){
+        
+    }
 
     public Receta(Date fechaIn, Date fechaFin, int numUni, Prescripcion pres, Farmacia f){
         this.estado = EstadoReceta.PLANIFICADA;

@@ -54,8 +54,8 @@ public class Paciente extends Usuario {
         super(TipoUsuario.PACIENTE);        
     }
 
-    public Paciente(String nombre, String apellidos, String dni, String tarj, String numSS, String direcc, String tel, String email, Date fechaNac, CentroSalud centro, Medico medico){
-        this();
+    public Paciente(String nombre, String apellidos, String dni, String tarj, String numSS, String direcc, String tel, String email, Date fechaNac, CentroSalud centro, Medico medico, String login, String passwd){
+        super(TipoUsuario.PACIENTE,login,passwd);
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;

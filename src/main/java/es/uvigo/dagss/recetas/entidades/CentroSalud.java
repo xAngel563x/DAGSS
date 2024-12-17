@@ -25,6 +25,10 @@ public class CentroSalud {
     
     private boolean activo;
 
+    public CentroSalud(){
+        
+    }
+
 
     public CentroSalud(String nom, String email, String dir, String tel){
         this.nombre = nom;

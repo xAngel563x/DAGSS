@@ -30,9 +30,13 @@ public class Medico extends Usuario {
     @JoinColumn(name = "CENTRO_SALUD_ASIGNADO")
     @ManyToOne
     private CentroSalud centroSaludAsignado;
-    
-    public Medico(String nom, String ap, String dni, String numCol, String tel, String email, CentroSalud cen) {
+
+    public Medico(){
         super(TipoUsuario.MEDICO);
+    }
+    
+    public Medico(String nom, String ap, String dni, String numCol, String tel, String email, CentroSalud cen, String login, String passwd) {
+        super(TipoUsuario.MEDICO,login,passwd);
         this.nombre = nom;
         this.apellidos = ap;
         this.dni = dni;

@@ -38,6 +38,10 @@ public class Cita {
     @ManyToOne
     private Paciente pacienteCitado;
 
+    public Cita(){
+        
+    }
+
 
     public Cita(Date fecha, int dur, Medico med, Paciente pac){
         this.fecha = fecha;
