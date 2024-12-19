@@ -35,7 +35,6 @@ public class Receta {
     @Enumerated(EnumType.STRING)
     private EstadoReceta estado;
 
-
     @JoinColumn(name = "PRESCRIPCION")
     @ManyToOne
     private Prescripcion prescripcion;
@@ -44,20 +43,74 @@ public class Receta {
     @ManyToOne
     private Farmacia farmacia;
 
-    public Receta(){
-        
+    public Receta() {
+
     }
 
-    public Receta(Date fechaIn, Date fechaFin, int numUni, Prescripcion pres, Farmacia f){
+    public Receta(Date fechaIn, Date fechaFin, int numUni, Prescripcion pres, Farmacia f) {
         this.estado = EstadoReceta.PLANIFICADA;
         this.fechaFinal = fechaFin;
-        this.fechaInicial=fechaIn;
-        this.numUnidadesMedicamento= numUni;
+        this.fechaInicial = fechaIn;
+        this.numUnidadesMedicamento = numUni;
         this.prescripcion = pres;
         this.farmacia = f;
     }
 
-    public void setEstado(EstadoReceta es){
-        this.estado = es;
+    // Getters y Setters
+    public Long getId() {
+        return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getFechaInicial() {
+        return fechaInicial;
+    }
+
+    public void setFechaInicial(Date fechaInicial) {
+        this.fechaInicial = fechaInicial;
+    }
+
+    public Date getFechaFinal() {
+        return fechaFinal;
+    }
+
+    public void setFechaFinal(Date fechaFinal) {
+        this.fechaFinal = fechaFinal;
+    }
+
+    public int getNumUnidadesMedicamento() {
+        return numUnidadesMedicamento;
+    }
+
+    public void setNumUnidadesMedicamento(int numUnidadesMedicamento) {
+        this.numUnidadesMedicamento = numUnidadesMedicamento;
+    }
+
+    public EstadoReceta getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoReceta estado) {
+        this.estado = estado;
+    }
+
+    public Prescripcion getPrescripcion() {
+        return prescripcion;
+    }
+
+    public void setPrescripcion(Prescripcion prescripcion) {
+        this.prescripcion = prescripcion;
+    }
+
+    public Farmacia getFarmacia() {
+        return farmacia;
+    }
+
+    public void setFarmacia(Farmacia farmacia) {
+        this.farmacia = farmacia;
+    }
+
 }

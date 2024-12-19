@@ -30,12 +30,12 @@ public class Farmacia extends Usuario {
 
     private String email;
 
-    public Farmacia(){
+    public Farmacia() {
         super(TipoUsuario.FARMACIA);
     }
-    
-	
-    public Farmacia(String nom, String nomFarm, String ap, String nif, String numCol, String dir, String tel, String email, String login, String passwd) {
+
+    public Farmacia(String nom, String nomFarm, String ap, String nif, String numCol, String dir, String tel,
+            String email, String login, String passwd) {
         super(TipoUsuario.FARMACIA, login, passwd);
         this.nombreEstabl = nom;
         this.nombreFarmaceutico = nomFarm;
@@ -46,5 +46,70 @@ public class Farmacia extends Usuario {
         this.tel = tel;
         this.email = email;
     }
-    
+
+    // Getters y Setters
+    public String getNombreEstabl() {
+        return nombreEstabl;
+    }
+
+    public void setNombreEstabl(String nombreEstabl) {
+        this.nombreEstabl = nombreEstabl;
+    }
+
+    public String getNombreFarmaceutico() {
+        return nombreFarmaceutico;
+    }
+
+    public void setNombreFarmaceutico(String nombreFarmaceutico) {
+        this.nombreFarmaceutico = nombreFarmaceutico;
+    }
+
+    public String getApellidosFarmaceutico() {
+        return apellidosFarmaceutico;
+    }
+
+    public void setApellidosFarmaceutico(String apellidosFarmaceutico) {
+        this.apellidosFarmaceutico = apellidosFarmaceutico;
+    }
+
+    public String getNif() {
+        return nif;
+    }
+
+    public void setNif(String nif) {
+        this.nif = nif;
+    }
+
+    public String getNumColegiadoFarmaceutico() {
+        return numColegiadoFarmaceutico;
+    }
+
+    public void setNumColegiadoFarmaceutico(String numColegiadoFarmaceutico) {
+        this.numColegiadoFarmaceutico = numColegiadoFarmaceutico;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }
